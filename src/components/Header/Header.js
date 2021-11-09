@@ -11,8 +11,30 @@ import Button from '../Button';
 const Header = () => {
   return (
     <header>
-      <SuperHeader>
-        <Row>
+      <MobileHeader>
+        <SuperHeader>
+          <Row>
+            <ActionGroup>
+              <button>
+                <Search size={24} />
+              </button>
+              <button>
+                <Menu size={24} />
+              </button>
+            </ActionGroup>
+            <ActionGroup>
+              <button>
+                <User size={24} />
+              </button>
+            </ActionGroup>
+          </Row>
+        </SuperHeader>
+        <MainHeader>
+          <Logo />
+        </MainHeader>
+      </MobileHeader>
+      <DesktopHeader>
+        <MainHeader>
           <ActionGroup>
             <button>
               <Search size={24} />
@@ -21,19 +43,33 @@ const Header = () => {
               <Menu size={24} />
             </button>
           </ActionGroup>
-          <ActionGroup>
-            <button>
-              <User size={24} />
-            </button>
-          </ActionGroup>
-        </Row>
-      </SuperHeader>
-      <MainHeader>
-        <Logo />
-      </MainHeader>
+          <Logo />
+          <Subscribe>
+            <Button>SUBSCRIBE</Button>
+            <SubscriberText>Already a subscriber?</SubscriberText>
+          </Subscribe>
+
+        </MainHeader>
+      </DesktopHeader>
     </header>
   );
 };
+
+const DesktopHeader = styled(MaxWidthWrapper)`
+  display: none;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: block;
+  }
+`;
+
+const MobileHeader = styled.div`
+  display: block;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: none;
+  }
+`;
 
 const SuperHeader = styled.div`
   padding: 16px 0;
@@ -65,6 +101,20 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+
+  @media ${QUERIES.laptopAndUp} {
+    justify-content: space-between;
+  }
+`;
+
+const Subscribe = styled.div`
+  
+`;
+
+const SubscriberText = styled.div`
+  margin-top: 8px;
+  text-decoration: underline;
+  font-style: italic;
 `;
 
 export default Header;
