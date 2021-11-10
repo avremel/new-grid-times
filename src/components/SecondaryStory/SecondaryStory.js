@@ -58,7 +58,6 @@ const Abstract = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  margin-bottom: 1em;
 `;
 
 export default SecondaryStory;

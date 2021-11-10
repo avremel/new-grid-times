@@ -52,18 +52,9 @@ const Wrapper = styled.div`
     'secondary-stories'
     'opinion-stories'
     'advertisement';
-  gap: 2px;
-  margin-bottom: 48px;
 
   @media ${QUERIES.tabletAndUp} {
-    background-color: var(--color-gray-300);
-    & > * {
-      background: var(--color-gray-100);
-      padding: 16px;
-    }
-  }
-
-  @media ${QUERIES.tabletAndUp} {
+    padding: 0 32px;
     grid-template-areas:
       "main-story main-story main-story secondary-stories"
       "advertisement advertisement advertisement advertisement"
@@ -81,14 +72,35 @@ const Wrapper = styled.div`
 
 const MainStorySection = styled.section`
   grid-area: main-story;
+  margin-bottom: 48px;
+  @media ${QUERIES.tabletAndUp} {
+      margin-bottom: 0;
+      padding-right: 16px;
+      border-right: 1px solid var(--color-gray-300);
+  }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+  @media ${QUERIES.tabletAndUp} {
+      padding-left: 16px;
+  }
+  @media ${QUERIES.laptopAndUp} {
+      padding-right: 16px;
+      border-right: 1px solid var(--color-gray-300);
+      margin-bottom: 16px;
+  }
 `;
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+  margin-top: 48px;
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-top: 0;
+    padding-left: 16px;
+    margin-bottom: 16px;
+  }
 `;
 
 const StoryList = styled.div`
@@ -98,9 +110,17 @@ const StoryList = styled.div`
   & > a:not(:last-child) {
     padding-bottom: 8px;
     border-bottom: 1px solid var(--color-gray-300);
+
+    @media ${QUERIES.tabletAndUp} {
+      padding-bottom: 16px;
+    }
   }
   & > a:not(:first-child) {
     padding-top: 8px;
+    
+    @media ${QUERIES.tabletAndUp} {
+      padding-top: 16px;
+    }
   }
   @media ${QUERIES.tabletOnly} {
     ${OpinionSection} & {
@@ -112,10 +132,18 @@ const StoryList = styled.div`
       }
     }
   }
+
 `;
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+  margin-top: 48px;
+  @media ${QUERIES.laptopAndUp} {
+      margin-top: 0;
+      padding-top: 16px;
+      margin-left: 16px;
+      border-top: 1px solid var(--color-gray-300);
+  }
 `;
 
 export default MainStoryGrid;

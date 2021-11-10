@@ -46,8 +46,13 @@ const SpecialtyStoryGrid = () => {
 };
 
 const Wrapper = styled.div`
+  margin-top: 48px;
   display: grid;
   gap: 48px;
+
+  @media ${QUERIES.tabletAndUp} {
+    padding: 0 32px;
+  }
 
   @media ${QUERIES.laptopAndUp} {
     padding: 16px;
@@ -59,10 +64,16 @@ const Wrapper = styled.div`
 const MarketsSection = styled.section``;
 
 const MarketCards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  & > a {
+    flex: 1 1 180px;
+  }
   @media ${QUERIES.tabletAndUp} {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    & > a {
+      flex: 0 1 180px;
+    }
   }
 `;
 
@@ -74,8 +85,11 @@ const SportsSection = styled.section`
 
 const SportsStories = styled.div`
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 16px;
+  & > a {
+    flex: 0 1 180px;
+  }
   
   @media ${QUERIES.tabletAndUp} {
     display: flex;
